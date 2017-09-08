@@ -1,0 +1,25 @@
+From c0fa0e95e3221aebf8bb75583e1328808d2f9e45 Mon Sep 17 00:00:00 2001
+From: goblin <goblin@example.com>
+Date: Thu, 15 Jun 2017 16:32:10 +0000
+Subject: [PATCH] deoptimize, put source
+
+---
+ debian/rules | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/debian/rules b/debian/rules
+index c439f34..d6fc0b3 100755
+--- a/debian/rules
++++ b/debian/rules
+@@ -27,3 +27,8 @@ override_dh_install:
+ 	dh_install
+ 	install -d debian/phc-winner-argon2/usr/lib/x86_64-linux-gnu/pkgconfig
+ 	install debian/libargon2.pc debian/phc-winner-argon2/usr/lib/x86_64-linux-gnu/pkgconfig/
++	install -d debian/phc-winner-argon2/usr/src
++	git archive HEAD | xz -c > debian/phc-winner-argon2/usr/src/argon2.tar.xz
++
++override_dh_auto_build:
++	$(MAKE) OPTTARGET=
+-- 
+2.11.0
+

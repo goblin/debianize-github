@@ -1,0 +1,25 @@
+From 6a42d2725574955c84ba9b470e3151329e6234b3 Mon Sep 17 00:00:00 2001
+From: user <user@example.com>
+Date: Sat, 2 Sep 2017 22:08:03 +0000
+Subject: [PATCH] build only c
+
+---
+ debian/rules | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/debian/rules b/debian/rules
+index 42c234e..cfe3193 100755
+--- a/debian/rules
++++ b/debian/rules
+@@ -23,3 +23,8 @@
+ #override_dh_auto_configure:
+ #	dh_auto_configure -- #	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+ 
++override_dh_auto_build:
++	dh_auto_build -- c
++
++override_dh_auto_install:
++	make install-c DESTDIR=$(CURDIR)/debian/argparser
+-- 
+2.11.0
+

@@ -1,0 +1,24 @@
+From b3f22b885abf5b3b2aa09f7b876867af066e3c5a Mon Sep 17 00:00:00 2001
+From: goblin <goblin@example.com>
+Date: Thu, 15 Jun 2017 12:08:59 +0000
+Subject: [PATCH 3/3] install .pc
+
+---
+ debian/rules | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/debian/rules b/debian/rules
+index 42c234e..c439f34 100755
+--- a/debian/rules
++++ b/debian/rules
+@@ -23,3 +23,7 @@
+ #override_dh_auto_configure:
+ #	dh_auto_configure -- #	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+ 
++override_dh_install:
++	dh_install
++	install -d debian/phc-winner-argon2/usr/lib/x86_64-linux-gnu/pkgconfig
++	install debian/libargon2.pc debian/phc-winner-argon2/usr/lib/x86_64-linux-gnu/pkgconfig/
+-- 
+2.11.0
+

@@ -1,0 +1,23 @@
+From 29b809e86151a7e0aca3ceaf7612bfb974e9e62b Mon Sep 17 00:00:00 2001
+From: goblin <goblin@example.com>
+Date: Wed, 14 Jun 2017 19:51:20 +0000
+Subject: [PATCH] --enable-module-recovery
+
+libbitcoin needs it
+---
+ debian/rules | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/debian/rules b/debian/rules
+index b79cce5..dc81258 100755
+--- a/debian/rules
++++ b/debian/rules
+@@ -23,3 +23,5 @@
+ #override_dh_auto_configure:
+ #	dh_auto_configure -- #	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+ 
++override_dh_auto_configure:
++	dh_auto_configure -- --enable-module-recovery
+-- 
+2.11.0
+
