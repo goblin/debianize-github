@@ -76,7 +76,7 @@ goblin/electrum-scripts
 goblin/treasure-goblin
 ricmoo/pyaes@v1.6.0
 spesmilo/electrum@2.9.3
-bitcoin/bitcoin@v0.14.1
+bitcoin/bitcoin@v0.15.0
 maandree/libkeccak
 maandree/argparser
 maandree/sha3sum
