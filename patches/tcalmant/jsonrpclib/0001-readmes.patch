@@ -1,0 +1,21 @@
+From b2341cfe099fc969b196f8ab131e78218356f482 Mon Sep 17 00:00:00 2001
+From: root <root@stretch_t>
+Date: Sat, 2 Sep 2017 13:57:35 +0000
+Subject: [PATCH] readmes
+
+---
+ README.Debian | 0
+ README.source | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.Debian
+ create mode 100644 README.source
+
+diff --git a/README.Debian b/README.Debian
+new file mode 100644
+index 0000000..e69de29
+diff --git a/README.source b/README.source
+new file mode 100644
+index 0000000..e69de29
+-- 
+2.11.0
+

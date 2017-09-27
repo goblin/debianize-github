@@ -54,7 +54,7 @@ diff -ru a/debian/rules b/debian/rules
  #	PYTHONPATH=. http_proxy='127.0.0.1:9' sphinx-build -N -bman        docs/ build/man # Manpage generator
  
 +override_dh_auto_build:
-+	pyrcc4 icons.qrc -o gui/qt/icons_rc.py
++	pyrcc5 icons.qrc -o gui/qt/icons_rc.py
 +	dh_auto_build
 +
 +override_dh_auto_test:

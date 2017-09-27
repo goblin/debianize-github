@@ -25,7 +25,7 @@ libqrencode-dev
 libevent-dev
 fuse
 libfuse-dev
-pyqt4-dev-tools
+pyqt5-dev-tools
 libleveldb-dev
 libcurl4-openssl-dev
 libmicrohttpd-dev
@@ -87,6 +87,7 @@ P-H-C/phc-winner-argon2
 goblin/electrum-scripts
 goblin/treasure-goblin
 ricmoo/pyaes@v1.6.0
+tcalmant/jsonrpclib
 goblin/electrum@fix_2897
 bitcoin/bitcoin@v0.15.0.1
 maandree/libkeccak
