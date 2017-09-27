@@ -8,55 +8,48 @@ Subject: [PATCH] build icons; no python3
  debian/rules   |  6 +++++-
  2 files changed, 6 insertions(+), 20 deletions(-)
 
-diff --git a/debian/control b/debian/control
-index 5af5a56f..9f11599a 100644
---- a/debian/control
-+++ b/debian/control
-@@ -5,8 +5,7 @@ Source: electrum
+diff -ru a/debian/control b/debian/control
+--- a/debian/control	2017-09-27 13:33:59.800693604 +0000
++++ b/debian/control	2017-09-27 13:34:04.952868690 +0000
+@@ -2,24 +2,14 @@
+ Section: unknown
+ Priority: optional
+ Maintainer: unknown <user@stretch_t7>
 -Build-Depends: debhelper (>= 9), dh-python, python-all, python-setuptools, python3-all, python3-setuptools
-+Build-Depends: debhelper (>= 9), dh-python, python-all, python-setuptools
++Build-Depends: debhelper (>= 9), dh-python, python3-all, python3-setuptools
  Standards-Version: 3.9.8
  Homepage: <insert the upstream URL, if relevant>
- X-Python-Version: >= 2.6
--X-Python3-Version: >= 3.2
+-X-Python-Version: >= 2.6
+ X-Python3-Version: >= 3.2
  #Vcs-Git: https://anonscm.debian.org/git/python-modules/packages/electrum.git
  #Vcs-Browser: https://anonscm.debian.org/cgit/python-modules/packages/electrum.git/
  #Testsuite: autopkgtest-pkg-python
-@@ -20,20 +19,3 @@ Description: <insert up to 60 chars description> (Python 2)
-  .
-  This package installs the library for Python 2.
  
--Package: python3-electrum
+-Package: python-electrum
 -Architecture: all
--Depends: ${python3:Depends}, ${misc:Depends}
+-Depends: ${python:Depends}, ${misc:Depends}
 -Suggests: python-electrum-doc
--Description: <insert up to 60 chars description> (Python 3)
+-Description: <insert up to 60 chars description> (Python 2)
 - <insert long description, indented with spaces>
 - .
-- This package installs the library for Python 3.
+- This package installs the library for Python 2.
 -
--Package: python-electrum-doc
--Architecture: all
--Section: doc
--Depends: ${sphinxdoc:Depends}, ${misc:Depends}
--Description: <insert up to 60 chars description> (common documentation)
-- <insert long description, indented with spaces>
-- .
-- This is the common documentation package.
-diff --git a/debian/rules b/debian/rules
-index 530dddad..93fa84be 100755
---- a/debian/rules
-+++ b/debian/rules
+ Package: python3-electrum
+ Architecture: all
+ Depends: ${python3:Depends}, ${misc:Depends}
+diff -ru a/debian/rules b/debian/rules
+--- a/debian/rules	2017-09-27 13:34:09.785032977 +0000
++++ b/debian/rules	2017-09-27 13:34:14.953208749 +0000
 @@ -6,7 +6,7 @@
  export PYBUILD_NAME=electrum
  
  %:
 -	dh $@ --with python2,python3 --buildsystem=pybuild --parallel
-+	dh $@ --with python2 --buildsystem=pybuild --parallel
++	dh $@ --with python3 --buildsystem=pybuild --parallel
  
  
  # If you need to rebuild the Sphinx documentation
-@@ -16,3 +16,7 @@ export PYBUILD_NAME=electrum
+@@ -16,3 +16,9 @@
  #	PYTHONPATH=. http_proxy='127.0.0.1:9' sphinx-build -N -bhtml        docs/ build/html # HTML generator
  #	PYTHONPATH=. http_proxy='127.0.0.1:9' sphinx-build -N -bman        docs/ build/man # Manpage generator
  
@@ -64,6 +57,8 @@ index 530dddad..93fa84be 100755
 +	pyrcc4 icons.qrc -o gui/qt/icons_rc.py
 +	dh_auto_build
 +
++override_dh_auto_test:
++	:
 -- 
 2.11.0
 

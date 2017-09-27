@@ -45,6 +45,15 @@ python-socks
 python-simplejson
 python-pil
 python-urllib3
+python3-dnspython
+python3-ecdsa
+python3-pbkdf2
+python3-protobuf
+python3-qrcode
+python3-requests
+python3-socks
+python3-pil
+python3-urllib3
 libwebp6
 libwebpdemux2
 libwebpmux2
