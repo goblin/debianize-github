@@ -1,0 +1,53 @@
+From e58f96984c24117b8a84fa61da4c280e6652d194 Mon Sep 17 00:00:00 2001
+From: user <user@example.com>
+Date: Wed, 27 Sep 2017 11:41:42 +0000
+Subject: [PATCH] fix makefile
+
+---
+ debian/patches/add-destdir.diff | 25 +++++++++++++++++++++++++
+ debian/patches/series           |  1 +
+ 2 files changed, 26 insertions(+)
+ create mode 100644 debian/patches/add-destdir.diff
+ create mode 100644 debian/patches/series
+
+diff --git a/debian/patches/add-destdir.diff b/debian/patches/add-destdir.diff
+new file mode 100644
+index 0000000..7ca1815
+--- /dev/null
++++ b/debian/patches/add-destdir.diff
+@@ -0,0 +1,25 @@
++Index: libfec/makefile.in
++===================================================================
++--- libfec.orig/makefile.in
+++++ libfec/makefile.in
++@@ -45,14 +45,13 @@ test: vtest27 vtest29 vtest39 vtest615 r
++ 	./vtest615
++ 
++ install: all
++-	mkdir -p @libdir@ 
++-	install -m 644 -p $(SHARED_LIB) libfec.a @libdir@
+++	mkdir -p $(DESTDIR)/@libdir@
+++	install -m 644 -p $(SHARED_LIB) libfec.a $(DESTDIR)/@libdir@
++ #	(cd @libdir@;ln -f -s $(SHARED_LIB) libfec.so)
++-	@REBIND@
++-	mkdir -p @includedir@
++-	install -m 644 -p fec.h @includedir@
++-	mkdir -m 0755 -p @mandir@/man3
++-	install -m 644 -p simd-viterbi.3 rs.3 dsp.3 @mandir@/man3
+++	mkdir -p $(DESTDIR)/@includedir@
+++	install -m 644 -p fec.h $(DESTDIR)/@includedir@
+++	mkdir -m 0755 -p $(DESTDIR)/@mandir@/man3
+++	install -m 644 -p simd-viterbi.3 rs.3 dsp.3 $(DESTDIR)/@mandir@/man3
++ 
++ peaktest: peaktest.o libfec.a
++ 	gcc -g -o $@ $^
+diff --git a/debian/patches/series b/debian/patches/series
+new file mode 100644
+index 0000000..feca475
+--- /dev/null
++++ b/debian/patches/series
+@@ -0,0 +1 @@
++add-destdir.diff
+-- 
+2.11.0
+

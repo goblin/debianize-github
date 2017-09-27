@@ -57,6 +57,9 @@ libwnck-dev
 libfm-gtk-dev
 libxml2-dev
 libkeybinder-dev
+libjansson-dev
+portaudio19-dev
+libsndfile1-dev
 EOD
 
 sudo apt-get install --yes $DEPS
@@ -83,6 +86,9 @@ maandree/sha3sum
 goblin/hexxor
 goblin/rdbl-code
 goblin/ethereum-scripts
+quiet/libfec
+quiet/liquid-dsp@devel
+quiet/quiet
 EOR
 
 ./build.sh $REPOS

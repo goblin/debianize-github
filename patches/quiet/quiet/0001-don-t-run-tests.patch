@@ -1,0 +1,22 @@
+From 4d45105bf8d25a14e79351e9208a4ad65b2bf299 Mon Sep 17 00:00:00 2001
+From: user <user@example.com>
+Date: Sun, 3 Sep 2017 20:13:38 +0000
+Subject: [PATCH] don't run tests
+
+---
+ debian/rules | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/debian/rules b/debian/rules
+index 74548a8..da55eef 100755
+--- a/debian/rules
++++ b/debian/rules
+@@ -23,3 +23,5 @@
+ #override_dh_auto_configure:
+ #      dh_auto_configure -- #  -DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+ 
++override_dh_auto_test:
++       :
+-- 
+2.11.0
+
