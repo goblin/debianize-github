@@ -78,7 +78,7 @@ P-H-C/phc-winner-argon2
 goblin/electrum-scripts
 goblin/treasure-goblin
 ricmoo/pyaes@v1.6.0
-spesmilo/electrum@2.9.3
+goblin/electrum@fix_2897
 bitcoin/bitcoin@v0.15.0
 maandree/libkeccak
 maandree/argparser
