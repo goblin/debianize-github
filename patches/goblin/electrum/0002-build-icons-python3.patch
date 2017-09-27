@@ -14,7 +14,7 @@ diff -ru a/debian/control b/debian/control
 @@ -2,24 +2,14 @@
  Section: unknown
  Priority: optional
- Maintainer: unknown <user@stretch_t7>
+ Maintainer: debianize-github <auto@example.com>
 -Build-Depends: debhelper (>= 9), dh-python, python-all, python-setuptools, python3-all, python3-setuptools
 +Build-Depends: debhelper (>= 9), dh-python, python3-all, python3-setuptools
  Standards-Version: 3.9.8

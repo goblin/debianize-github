@@ -5,6 +5,11 @@
 
 set -e
 
+# changing these so the control files are more deterministic
+# (and so that patches apply properly)
+export DEBFULLNAME=debianize-github
+export DEBEMAIL=auto@example.com
+
 function do_dh_make() {
 	PKGS="$1"
 	if [ -e 'setup.py' ]
