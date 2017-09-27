@@ -13,11 +13,11 @@ index 74548a8..da55eef 100755
 +++ b/debian/rules
 @@ -23,3 +23,6 @@
  #override_dh_auto_configure:
- #      dh_auto_configure -- #  -DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+ #	dh_auto_configure -- #	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
  
 +# test_bitcoin-qt tries to connect to non-existing X-server
 +override_dh_auto_test:
-+       :
++	:
 -- 
 2.11.0
 
